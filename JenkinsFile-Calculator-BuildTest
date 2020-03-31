@@ -15,13 +15,11 @@ pipeline {
          stage("Compile Test Stage") {
               steps {
                    sh "./gradlew test"
-                  publishHTML target: [
-            allowMissing: false,
-            alwaysLinkToLastBuild: false,
-            keepAll: true,
-            reportDir: 'coverage',
-            reportFiles: 'index.html',
-            reportName: 'RCov Report'
+                 publishHTML (target: [
+                        reportDir: '/var/lib/jenkins/workspace',
+                        reportFiles: 'index.html',
+                        reportName: "JaCoCo Report"
+                   ])
           ]
                    ])
               }
