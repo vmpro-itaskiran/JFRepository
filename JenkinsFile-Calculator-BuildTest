@@ -15,10 +15,14 @@ pipeline {
          stage("Compile Test Stage") {
               steps {
                    sh "./gradlew test"
-                   publishHTML (target: [
-                        reportDir: '/opt/git',
-                        reportFiles: 'index.html',
-                        reportName: "test Report"
+                  publishHTML target: [
+            allowMissing: false,
+            alwaysLinkToLastBuild: false,
+            keepAll: true,
+            reportDir: 'coverage',
+            reportFiles: 'index.html',
+            reportName: 'RCov Report'
+          ]
                    ])
               }
          }
