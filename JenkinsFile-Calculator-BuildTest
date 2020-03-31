@@ -20,8 +20,6 @@ pipeline {
                         reportFiles: 'index.html',
                         reportName: "JaCoCo Report"
                    ])
-          ]
-                   ])
               }
          }
     }
