@@ -15,6 +15,11 @@ pipeline {
          stage("Compile Test Stage") {
               steps {
                    sh "./gradlew test"
+                   publishHTML (target: [
+                        reportDir: 'build/reports/jacoco/test/html',
+                        reportFiles: 'index.html',
+                        reportName: "test Report"
+                   ])
               }
          }
     }
